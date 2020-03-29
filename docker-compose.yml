@@ -1,0 +1,19 @@
+version: "2"
+services:
+  opencpn:
+    build: .
+    image: opencpn
+    container_name: opencpn
+    network_mode: host
+    environment:
+      - "DISPLAY"
+    volumes:
+      - $HOME/.Xauthority:/root/.Xauthority:rw 
+      - $PWD/config:/root/.opencpn
+      - $PWD/../signalk_conf/charts:/root/charts
+      - $PWD/../zygrib/grib:/root/grib
+    restart: unless-stopped
+    entrypoint: opencpn
+    logging:
+      options:
+        max-size: 10m
