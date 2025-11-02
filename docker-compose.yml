@@ -9,7 +9,7 @@ services:
       - "DISPLAY"
     volumes:
       - $HOME/.Xauthority:/root/.Xauthority:rw 
-      - $PWD/../opencpn_config:/root/.opencpn
+      - $PWD/config:/root/.opencpn
       - $PWD/../signalk_conf/charts:/root/charts
       - $PWD/../zygrib/grib:/root/grib
     restart: unless-stopped
